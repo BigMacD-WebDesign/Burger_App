@@ -1,26 +1,27 @@
+{{!-- <div class="jumbotron"> --}}
 <h1>Burgers!</h1>
 
-<h2>Enjoy the burgers!</h2>
+<h3 id="tomato">Enjoy the burgers!</h3>
 
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      <li>{{burger_name}}<button class="devour-burger" data-id="{{id}}">Devour</button></li>
+      <li>{{burger_name}}</li><button class="devour-burger" data-id="{{id}}">Devour</button>
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Burgers Eaten</h2>
+<h3 id="lettuce">Burgers Eaten</h3>
 
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      <li>{{burger_name}}<button class="delete-burger" data-id="{{id}}">Remove</button></li>
+      <li>{{burger_name}}</li><button class="delete-burger" data-id="{{id}}">Remove</button>
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>Order a Burger!</h2>
+<h1>Order a Burger!</h1>
 <form class="create-form">
 
   <div class="form-group">
@@ -28,11 +29,6 @@
     <input type="text" id="ca" name="name">
   </div>
 
-  {{!-- <div class="form-group">
-    <label for="sleep">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div> --}}
-
   <button type="submit">Add Burger</button>
 </form>
+{{!-- </div> --}}

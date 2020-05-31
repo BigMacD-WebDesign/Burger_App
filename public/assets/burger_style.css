@@ -1,0 +1,47 @@
+li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    color:#8B4513;
+    font-size: 75px;
+    font-weight: bolder;
+  }
+
+  ul {
+      list-style: none;
+  }
+
+  body {
+      background-color: blue;
+      text-align: center;
+  }
+
+  .devour-burger {
+      margin-left: 15px;
+  }
+
+  .delete-burger {
+      margin-left: 15px;
+  }
+
+  h1 {
+      font-weight: bold;
+      font-size: 100px;
+      color: tan;
+  }
+
+  #tomato {
+      color: #FF6347;
+      font-size: 50px;
+      font-weight: bold;
+  }
+
+  #lettuce {
+      color: green;
+      font-size: 50px;
+      font-weight: bold;
+  }
+
+  label {
+      font-weight: bold;
+  }
