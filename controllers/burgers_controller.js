@@ -6,47 +6,71 @@ var burgers = require("../models/burger");
 
 
 router.get("/", async (req, res) => {
-  const data = await burgers.all();
-  console.log("View burgers.")
+  try {
+    const data = await burgers.all();
+    console.log("View burgers.")
 
-  // res.json(data)
+    res.render("index", { burgers: data });
 
-  res.render("index", { burgers: data });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).send(error);
+  }
 });
 
 
 router.post("/api/burgers", async (req, res) => {
-  const data = await burgers.create(["burger_name"], [req.body.name]);
-  console.log("Test burger display");
-  res.json({ id: data.insertId });
+  try {
+    const data = await burgers.create(["burger_name"], [req.body.name]);
+
+    console.log("Test burger display");
+    res.json({ id: data.insertId });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).send(error);
+  }
 });
 
 
 router.put("/api/burgers/:id", async (req, res) => {
-  let condition = `id = ${req.params.id}`;
+  try {
+    let condition = `id = ${req.params.id}`;
 
-  console.log("condition", condition);
+    console.log("condition", condition);
 
-  const data = await burgers.update({ devoured: true }, condition);
+    const data = await burgers.update({ devoured: true }, condition);
 
-  if (data.changedRows === 0) {
-    res.status(404).end();
+    if (data.changedRows === 0) {
+      res.status(404).end();
+    }
+
+    res.status(200).end();
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).send(error);
   }
-
-  res.status(200).end();
 });
 
 router.delete("/api/burger/:id", async (req, res) => {
-  let condition = `id = ${req.params.id}`;
+  try {
+    let condition = `id = ${req.params.id}`;
     console.log(condition);
 
-  const data = await burgers.delete(condition);
+    const data = await burgers.delete(condition);
 
-  if (data.affectedRows === 0) {
-    res.status(404).end();
+    if (data.affectedRows === 0) {
+      res.status(404).end();
+    }
+
+    res.status(200).end();
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).send(error);
   }
-
-  res.status(200).end();
 });
 
 
