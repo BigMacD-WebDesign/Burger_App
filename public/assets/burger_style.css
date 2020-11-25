@@ -12,7 +12,11 @@ li {
   }
 
   body {
-      background-color: #808080;
+      background-image: url(./image/cheeseburgerfriesE.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      /* background-color: #EE9A49; */
       text-align: center;
   }
 
@@ -31,7 +35,7 @@ li {
   }
 
   #tomato {
-      color: #FF6347;
+      color: #DC143C;
       font-size: 50px;
       font-weight: bold;
   }
